@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Selector</title>
+</head>
+<body>
+
+
+    <img id="image" src="/video_feed" alt="Video Feed" style="position: relative;">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0; /* Opcionális háttérszín */
+        }
+    
+        #image {
+            max-width: 90%;
+            max-height: 90%;
+            display: block;
+        }
+
+        .selection {
+        border: 2px dashed red;  /* Változtathatod a színét és stílusát */
+        position: absolute;
+        pointer-events: none;   /* Ez biztosítja, hogy az egérmozgatás ne legyen befolyásolva a kijelölő doboz által */
+        z-index: 1;             /* A kijelölő div a kép felett lesz */
+    }
+    </style>
+    
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Kijelölő div létrehozása
+    let selector = $('<div>').addClass('selection').hide().appendTo('body');
+
+    let isSelecting = false;
+
+    $('#image').on('mousedown', function (e) {
+        isSelecting = true;
+        selection.startX = e.pageX;
+        selection.startY = e.pageY;
+        selector.css({
+            top: e.pageY,
+            left: e.pageX,
+            width: 0,
+            height: 0
+        }).show();
+    }).on('mousemove', function (e) {
+        if (isSelecting) {
+            selector.css({
+                width: e.pageX - selection.startX,
+                height: e.pageY - selection.startY
+            });
+        }
+    }).on('mouseup', function (e) {
+        isSelecting = false;
+        selection.width = e.pageX - selection.startX;
+        selection.height = e.pageY - selection.startY;
+        selector.hide();
+
+        // Küldjük az adatokat a Flask szervernek
+        $.ajax({
+            url: '/set_roi',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(selection),
+            dataType: 'json',
+            success: function (response) {
+                console.log(response.message);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
