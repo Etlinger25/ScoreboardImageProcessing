@@ -12,11 +12,9 @@ server_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 # Get the hostname and IP address of the host
 host_name  = socket.gethostname()
 
-# A helyi IP-cím megszerzéséhez próbáljuk megszerezni a kapcsolatot egy nem létező címre.
-# Ebben az esetben a cél csak annyi, hogy megtudjuk a 'kifelé vezető' interfész IP-címét.
+
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 try:
-    # Ez nem fogja valóban csatlakozni, de megadja a helyes interfész IP-címét.
     s.connect(('10.255.255.255', 1))
     local_ip = s.getsockname()[0]
 except Exception:
@@ -25,8 +23,6 @@ finally:
     s.close()
 
 print('Local IP:', local_ip)
-#host_ip = '164.8.233.100'
-#host_ip = '176.63.17.240'
 print('HOST IP:', local_ip)
 
 # Set the port number
