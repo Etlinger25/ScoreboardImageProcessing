@@ -50,10 +50,7 @@ while True:
     
     if client_socket:
         # Create a VideoCapture object to capture video from the default camera (index 0)
-        #vid = cv2.VideoCapture(0)
-        #vid = cv2.VideoCapture('/Users/etlinger/Downloads/probavidi2.mp4')
-        #vid = cv2.VideoCapture('/Users/etlinger/Downloads/probavidi6.mp4')
-        vid = cv2.VideoCapture('/Users/etlinger/Downloads/szuperproba3.mp4')
+        vid = cv2.VideoCapture('your_video')
 
         while vid.isOpened():
             start = time.time()
