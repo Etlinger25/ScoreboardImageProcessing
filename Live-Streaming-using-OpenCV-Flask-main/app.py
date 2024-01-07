@@ -31,7 +31,7 @@ from flask import Flask, Response, render_template, jsonify
 
 
 
-model = load_model('/Users/etlinger/Downloads/my_model_6.h5')
+model = load_model('/Users/.../my_model_6.h5')
 
 # Létrehozunk egy könyvtárat a képeknek
 IMAGE_SAVE_DIR = "saved_2_6"
