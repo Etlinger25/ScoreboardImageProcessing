@@ -14,10 +14,11 @@ The system operates by recognizing numbers at specified positions using the neur
 
 # Installation Guide
 
-Streamer Module: Start by running the streamer.py file.
-Application Module: Edit the app.py file to include the correct local IP address and run it.
-Flutter Application: Finally, run the Flutter application and input the API endpoint specified in the app.py file.
-Usage
+1. Streamer Module: Start by running the streamer.py file.
+2. Application Module: Edit the app.py file to include the correct local IP address and run it.
+3. Flutter Application: Finally, run the Flutter application and input the API endpoint specified in the app.py file.
+
+# Usage
 
 The system is designed to be user-friendly and straightforward. After setting up the streamer and application modules, the Flutter application will display the real-time scores. Ensure that all components are correctly configured and connected for seamless operation.
 
@@ -25,6 +26,6 @@ The system is designed to be user-friendly and straightforward. After setting up
 
 The code and methodology of this project are entirely my intellectual property.
 
-Contribution
+# Contribution
 
 Currently, this project is not open for contributions. However, feedback and suggestions are always welcome.
