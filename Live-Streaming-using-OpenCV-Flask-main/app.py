@@ -43,9 +43,7 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
-host_ip = '192.168.0.103'
-#host_ip = '192.168.1.105'
-#host_ip = '192.168.1.103'
+host_ip = 'host_ip'
 port = 10050
 
 # Globális változóként tároljuk a ROI-t, hogy könnyen elérhető legyen.
@@ -376,17 +374,6 @@ def recognize_digits(image):
     except KeyError:
         print("Értelmezhetetlen adattag.")
 
-            
-        
-
-        #print(f"{key.replace('_', ' ').capitalize()}: {eredmenyek[key]}")
-
-
-
-
-
-
-
 
 def other_thread():
     global shared_list
@@ -469,15 +456,6 @@ def recognize_with_ssocr(roi_gray):
     # Futtasd az ssocr-t a memóriában tárolt képen
     result = subprocess.run(['ssocr', '-d', '-1', '-'], input=image_data, stdout=subprocess.PIPE)
     return result.stdout.decode('utf-8').strip()
-
-
-
-#app = Flask(__name__)
-
-# Engedélyezze a kívánt forrásokból származó kéréseket
-#CORS(app, resources={r"/results": {"origins": "http://localhost:3000"}})
-#CORS(app, resources={r"/video_feed": {"origins": "http://localhost:5001"}})
-
 
 
 
