@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:fletterapp/Player.dart';
+import 'package:.../Player.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
