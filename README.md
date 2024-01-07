@@ -5,10 +5,11 @@ This project aims to enhance the tracking and display of bowling scores by recog
 
 # Technologies Used
 
-Programming Language: Python
-Neural Network Model: Developed on Google Colab
-Front-End: Flutter application
-Working Principle
+- Programming Language: Python
+- Neural Network Model: Developed on Google Colab
+- Front-End: Flutter application
+
+# Working Principle
 
 The system operates by recognizing numbers at specified positions using the neural network model. It then stores these numbers in a list according to the defined logic. This process ensures accurate tracking of players' scores, even in the event of lane changes.
 
